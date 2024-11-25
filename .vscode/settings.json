@@ -1,0 +1,14 @@
+{
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "testing.automaticallyOpenPeekView": "never",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    },
+    "css.lint.unknownAtRules": "ignore",
+  }
+  

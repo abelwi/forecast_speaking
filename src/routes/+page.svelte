@@ -1,6 +1,14 @@
-<h1 class="font-bold">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  import part1Forecast from "$lib/data/part1_forecast.json";
+</script>
 
-<div class="font-bold">This is lam</div>  
-
-<button class="btn">Click me</button>
+{#each part1Forecast as item}
+  <div>
+    <h2 class="text-lg font-medium">
+      {item.title}
+    </h2>
+    {#each item.questions as question}
+      {question}
+    {/each}
+  </div>
+{/each}

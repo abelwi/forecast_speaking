@@ -2,3 +2,5 @@
 <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
 
 <div class="font-bold">This is lam</div>  
+
+<button class="btn">Click me</button>

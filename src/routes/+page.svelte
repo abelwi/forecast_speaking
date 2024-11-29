@@ -23,8 +23,9 @@
     Bộ đề dự đoán IELTS SPEAKING Part 1!
   </h1>
 
-  <div class="flex justify-center">
-    <a href="/part2-3" class="btn">Part 2&3</a>
+  <div class="flex justify-center mb-10">
+    
+    <a href="/part2-3" class="btn btn-outline btn-primary">Part 2&3</a>
   </div>
 
   <div
@@ -37,10 +38,10 @@
           e.preventDefault(); // Prevent default anchor behavior
           handleClick(i);
         }}
-        class="flex-shrink-0 text-md py-3 px-4 cursor-pointer hover:text-blue-600 transition-colors duration-300"
+        class="flex-shrink-0 text-md py-3 px-4 cursor-pointer hover:text-primary transition-colors duration-300"
         class:border-b-2={activeSection === i}
         class:border-black={activeSection === i}
-        class:text-blue-600={activeSection === i}
+        class:text-primary={activeSection === i}
       >
         {item.title}
       </a>

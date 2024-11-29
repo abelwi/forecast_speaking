@@ -1,6 +1,5 @@
 <script lang="ts">
   import part1Forecast from "$lib/data/part1_forecast.json";
-  import { onMount } from "svelte";
 
   let activeSection = 0;
   let isClicking = false; // To temporarily disable scroll logic
@@ -23,6 +22,10 @@
   <h1 class="text-center font-semibold text-4xl mb-10">
     Bộ đề dự đoán IELTS SPEAKING Part 1!
   </h1>
+
+  <div class="flex justify-center">
+    <a href="/part2-3" class="btn">Part 2&3</a>
+  </div>
 
   <div
     class="flex overflow-x-auto whitespace-nowrap space-x-6 border-b-2 border-gray-200 mx-20 sticky top-0 bg-white"
@@ -48,22 +51,26 @@
     <div>
       {#each part1Forecast as item, i}
         <div id="section-{i}" class="h-16"></div>
-        <div 
-          class="text-xl flex font-medium  mt-5 mb-5 border border-base-300 rounded-lg px-4 py-3 shadow-sm hover:shadow-md 
+        <div
+          class="text-xl flex font-medium mt-5 mb-5 border border-base-300 rounded-lg px-4 py-3 shadow-sm hover:shadow-md
           transition-shadow duration-300 bg-primary-content space-x-7"
         >
-          <img src="src/images/title.png" alt="Title" class="w-9 h-9">
+          <img src="src/images/title.png" alt="Title" class="w-9 h-9" />
           <span class="mt-1">{item.title}</span>
         </div>
 
         <div class="mb-2 space-y-5 ml-5 sm:ml-10">
           {#each item.questions as question}
             <div class="flex space-x-2">
-              <img src="src/images/question.png" alt="Question" class="w-7 h-7">
+              <img
+                src="src/images/question.png"
+                alt="Question"
+                class="w-7 h-7"
+              />
               <span>{question}</span>
             </div>
           {/each}
-        </div>  
+        </div>
       {/each}
     </div>
   </div>

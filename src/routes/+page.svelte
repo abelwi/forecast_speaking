@@ -23,8 +23,9 @@
     Bộ đề dự đoán IELTS SPEAKING Part 1!
   </h1>
 
-  <div class="flex justify-center mb-10">
-    
+  
+  <div class="flex justify-center mb-10 space-x-5">
+    <a href="/" class="btn btn-primary">Part1</a>
     <a href="/part2-3" class="btn btn-outline btn-primary">Part 2&3</a>
   </div>
 

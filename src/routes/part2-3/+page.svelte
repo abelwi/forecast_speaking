@@ -1,5 +1,21 @@
 <script lang="ts">
   import part23Forecast from "$lib/data/part23_forecast.json";
+
+  let activeSection = 0;
+  let isClicking = false; // To temporarily disable scroll logic
+
+  const handleClick = (index: number) => {
+    isClicking = true; // Temporarily disable scroll logic
+    activeSection = index;
+
+    const section = document.querySelector(`#section-${index}`);
+    section?.scrollIntoView({ behavior: "smooth" });
+
+    // Re-enable scroll handling after scrolling finishes
+    setTimeout(() => {
+      isClicking = false;
+    }, 2000); // Adjust timeout based on scrolling duration
+  };
 </script>
 
 <div class="my-10 mx-20">
@@ -12,11 +28,89 @@
     <a href="/part2-3" class="btn btn-primary">Part 2&3</a>
   </div>
 
-  <div class="flex overflow-x-auto whitespace-nowrap border-b-2 border-gray-200 text-lg font-semibold py-5 mb-5 sticky top-0 bg-white">
-    <p class="w-1/2 text-center">Part 2</p>
-    <p class="w-1/2 text-center">Part 3</p>
+  <div class="sticky top-0 bg-white">
+    <div class="flex justify-center">
+      <div class="flex justify-center w-1/2 overflow-x-auto whitespace-nowrap space-x-16 border-2 border-gray-200 py-3 mt-3 rounded-lg">
+        {#each part23Forecast as topic, i}
+          <a href="#section-{i}"
+          on:click={(e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            handleClick(i);
+          }}
+          class="flex-shrink-0 text-md py-2 px-4 cursor-pointer hover:text-primary transition-colors duration-300"
+          class:border-b-2={activeSection === i}
+          class:border-black={activeSection === i}
+          class:text-primary={activeSection === i}
+          >
+            {topic.topic}
+          </a>
+        {/each}
+      </div>
+    </div>
+
+    <div class="flex overflow-x-auto whitespace-nowrap border-b-2 border-gray-200 text-lg font-semibold mt-4">
+      <p class="w-1/2 text-center">Part 2</p>
+      <p class="w-1/2 text-center">Part 3</p>
+    </div>
+    
   </div>
-  {#each part23Forecast as item, i}
+
+
+
+  {#each part23Forecast as topic, i}
+    {#if i > 0}
+      <div class="divider"></div>
+    {/if}
+    <div id="section-{i}" class="h-24"></div>
+    <h1 class="text-2xl mt-10 font-semibold">{topic.topic}</h1>
+    {#each topic.titles as item, i}
+      {#if i > 0}
+        <div class="divider"></div>
+      {/if}
+      <div class="flex items-center space-x-10">
+        <div class="w-1/2">
+          <div class="flex items-center space-x-7 bg-primary-content text-lg text-center px-5 py-4 rounded-lg">
+            <img src="src/images/describe.png" alt="Describe" class="w-16 h-16">
+            <span>{item.title}</span>
+          </div>
+
+          <div class="mt-5">
+            <p class="font-semibold mb-2"><em>Cue Card:</em></p>
+            {#each item.cueCards as cueCart}
+              <li class="ml-5">{cueCart}</li>
+            {/each}
+          </div>
+        </div>
+
+        <div class="w-1/2 mt-5">
+          {#each item.questions as question}
+            <p class="flex space-x-5 border border-primary-content px-4 py-2 rounded-lg mb-5">
+              <img
+                  src="src/images/question.png"
+                  alt="Question"
+                  class="w-7 h-7"
+                />
+              <span>{question}</span>
+            </p>
+          {/each}
+        </div>
+      </div>
+
+      <!-- {#each item.cueCards as cueCard}
+        <li>{cueCard}</li>
+      {/each}
+
+      {#each item.questions as question}
+        <p><strong>{question}</strong></p>
+      {/each} -->
+    {/each}
+  {/each}
+
+
+
+
+
+  <!-- {#each part23Forecast as item, i}
     {#if i > 0}
       <div class="divider"></div>
     {/if}
@@ -48,7 +142,7 @@
         {/each}
       </div>
     </div>
-  {/each}
+  {/each} -->
 </div>
 
 

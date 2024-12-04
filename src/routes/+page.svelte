@@ -27,6 +27,7 @@
   <div class="flex justify-center mb-10 space-x-5">
     <a href="/" class="btn btn-primary">Part1</a>
     <a href="/part2-3" class="btn btn-outline btn-primary">Part 2&3</a>
+    <a href="/part1" class="btn btn-outline btn-primary">Topic</a>
   </div>
 
   <div

@@ -9,7 +9,13 @@
     activeSection = index;
 
     const section = document.querySelector(`#section-${index}`);
-    section?.scrollIntoView({ behavior: "smooth" });
+    if (section && section instanceof HTMLElement) { // Type guard to check it's an HTMLElement
+      // Adjust scroll position with an offset
+      window.scrollTo({
+        top: section.offsetTop - 100, // Adjust 80px to the height of your sticky navbar
+        behavior: "smooth",
+      });
+    }
 
     // Re-enable scroll handling after scrolling finishes
     setTimeout(() => {
@@ -18,42 +24,44 @@
   };
 </script>
 
+
 <div class="my-10">
   <h1 class="text-center font-semibold text-4xl mb-10">
     Bộ đề dự đoán IELTS SPEAKING Part 1!
   </h1>
 
-  
-  <div class="flex justify-center mb-10 space-x-5">
-    <a href="/" class="btn btn-primary">Part1</a>
-    <a href="/part2-3" class="btn btn-outline btn-primary">Part 2&3</a>
-    <a href="/part1" class="btn btn-outline btn-primary">Topic</a>
-  </div>
+  <div class="sticky top-0 bg-white">
+    <div class="flex justify-center mb-5 pt-3 space-x-5">
+      <a href="/" class="btn btn-primary">Part1</a>
+      <a href="/part2-3" class="btn btn-outline btn-primary">Part 2&3</a>
+      <a href="/part1" class="btn btn-outline btn-primary">Topic</a>
+    </div>
 
-  <div
-    class="flex overflow-x-auto whitespace-nowrap space-x-6 border-b-2 border-gray-200 mx-20 sticky top-0 bg-white"
-  >
-    {#each part1Forecast as item, i}
-      <a
-        href="#section-{i}"
-        on:click={(e) => {
-          e.preventDefault(); // Prevent default anchor behavior
-          handleClick(i);
-        }}
-        class="flex-shrink-0 text-md py-3 px-4 cursor-pointer hover:text-primary transition-colors duration-300"
-        class:border-b-2={activeSection === i}
-        class:border-black={activeSection === i}
-        class:text-primary={activeSection === i}
-      >
-        {item.title}
-      </a>
-    {/each}
+    <div
+      class="flex overflow-x-auto whitespace-nowrap space-x-6 border-b-2 border-gray-200 mx-20"
+    >
+      {#each part1Forecast as item, i}
+        <a
+          href="#section-{i}"
+          on:click={(e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            handleClick(i);
+          }}
+          class="flex-shrink-0 text-md py-3 px-4 cursor-pointer hover:text-primary transition-colors duration-300"
+          class:border-b-2={activeSection === i}
+          class:border-black={activeSection === i}
+          class:text-primary={activeSection === i}
+        >
+          {item.title}
+        </a>
+      {/each}
+    </div>
   </div>
 
   <div class="px-10 sm:px-20 flex justify-center">
     <div>
       {#each part1Forecast as item, i}
-        <div id="section-{i}" class="h-16"></div>
+        <div id="section-{i}" class="h-10"></div>
         <div
           class="text-xl flex font-medium mt-5 mb-5 border border-base-300 rounded-lg px-4 py-3 shadow-sm hover:shadow-md
           transition-shadow duration-300 bg-primary-content space-x-7"

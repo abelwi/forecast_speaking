@@ -26,13 +26,14 @@
 
 <div class="my-10 mx-20">
   <h1 class="text-center font-semibold text-4xl mb-10">
-    Bộ đề dự đoán IELTS SPEAKING Part 2&3!
+    Bộ đề dự đoán IELTS SPEAKING Part 2&3 <em class="text-primary">tháng 12</em>!
   </h1>
 
   <div class="sticky top-0 bg-white">
     <div class="flex">
       <div class="flex w-1/2 mb-5 pt-3 space-x-5">
-        <a href="/" class="btn btn-outline btn-primary">Part1</a>
+        <a href="/" class="btn btn-outline btn-primary">Giới thiệu</a>
+        <a href="/part1" class="btn btn-outline btn-primary">Part1</a>
         <a href="/part2-3" class="btn btn-primary">Part 2&3</a>
       </div>
 

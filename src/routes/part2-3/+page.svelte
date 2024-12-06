@@ -3,6 +3,8 @@
 
   let activeSection = 0;
   let isClicking = false; // To temporarily disable scroll logic
+  let searchTerm = '';
+  let filteredData = part23Forecast;
 
   const handleClick = (index: number) => {
     isClicking = true; // Temporarily disable scroll logic
@@ -23,19 +25,37 @@
       isClicking = false;
     }, 2000); // Adjust timeout based on scrolling duration
   };
+
+  // Watch for changes in searchTerm and filter the data
+  $: filteredData = part23Forecast.map(topic => ({
+    ...topic,
+    titles: topic.titles.filter(title => {
+      return title.title.toLowerCase().includes(searchTerm.toLowerCase());
+    })
+  })).filter(topic => topic.titles.length > 0); // Only keep items with matching titles
 </script>
 
-<div class="my-10 mx-5 sm:mx-20">
+<div class="my-14 mx-2 sm:mx-20">
   <h1 class="text-center font-semibold text-xl sm:text-4xl mb-5 sm:mb-10">
     Bộ đề dự đoán IELTS SPEAKING Part 2&3 <em class="text-primary">tháng 12</em
     >!
   </h1>
 
   <div class="sticky w-full top-0 bg-white">
-    <div class="flex pt-3 mb-5 sm:mb-0 space-x-2 sm:space-x-5">
-      <a href="/" class="btn btn-xs sm:btn-md btn-outline btn-primary">Giới thiệu</a>
-      <a href="/part1" class="btn btn-xs sm:btn-md btn-outline btn-primary">Part1</a>
-      <a href="/part2-3" class="btn btn-xs sm:btn-md btn-primary">Part 2&3</a>
+    <div class="flex justify-between pt-3 mb-0 sm:mb-0">
+      <div class="mt-2 sm:mt-0 space-x-2 sm:space-x-5">
+        <a href="/part1" class="btn btn-xs sm:btn-md btn-outline btn-primary">Part1</a>
+        <a href="/part2-3" class="btn btn-xs sm:btn-md btn-primary">Part 2&3</a>
+      </div>
+      <!-- Search Box -->
+      <div class="mb-5 flex text-center w-1/2">
+        <input
+          type="text"
+          placeholder="Tìm câu hỏi Part 2 ..."
+          bind:value={searchTerm}
+          class="input input-bordered w-full h-10 sm:h-12"
+        />
+      </div>
     </div>
     
     <div class="flex sm:justify-end">
@@ -49,7 +69,7 @@
               e.preventDefault(); // Prevent default anchor behavior
               handleClick(i);
             }}
-            class="flex-shrink-0 text-md py-2 px-0 sm:px-4 cursor-pointer hover:text-primary transition-colors duration-300"
+            class="flex-shrink-0 text-md py-2 px-1 rounded-md sm:px-4 cursor-pointer hover:text-primary transition-colors duration-300"
             class:border-b-2={activeSection === i}
             class:border-black={activeSection === i}
             class:text-primary={activeSection === i}
@@ -61,23 +81,29 @@
     </div>
       
     <div
-      class="flex overflow-x-auto whitespace-nowrap border-b-2 border-gray-200 text-sm sm:text-base font-semibold mt-4 sm:mt-8 pb-3"
+      class="flex overflow-x-auto whitespace-nowrap border-b-2 border-gray-200 text-sm sm:text-lg font-semibold mt-5 sm:mt-8 pb-3"
     >
       <p class="w-1/2 text-center">Part 2</p>
       <p class="w-1/2 text-center">Part 3</p>
     </div>
   </div>
 
-  {#each part23Forecast as topic, i}
+  {#each filteredData as topic, i}
     {#if i > 0}
       <div class="divider"></div>
     {/if}
+
     <div id="section-{i}" class="h-5"></div>
-    <h1 class="text-lg sm:text-2xl mt-5 font-semibold">{topic.topic}</h1>
+    <h1 class="flex space-x-2 text-lg sm:text-2xl mt-5 font-semibold">
+      <img src="/images/topic_part23.png" alt="Topic" class="w-7 sm:w-9 h-7 sm:h-9">
+      <span>{topic.topic}</span>
+    </h1>
+
     {#each topic.titles as item, i}
       {#if i > 0}
         <div class="divider"></div>
       {/if}
+
       <div class="flex sm:items-center space-x-3 sm:space-x-10">
         <div class="w-1/2 mt-5">
           <div
@@ -108,4 +134,13 @@
       </div>
     {/each}
   {/each}
+
+  <!-- Check if there are any filtered results -->
+  <div class="mt-20">
+    {#if filteredData.length === 0}
+      <p class="text-center text-sm sm:text-lg font-semibold text-red-500">
+        Không có câu hỏi nào cho "{searchTerm}" :((
+      </p>
+    {/if}
+  </div>
 </div>

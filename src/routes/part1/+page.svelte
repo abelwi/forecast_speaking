@@ -9,7 +9,8 @@
     activeSection = index;
 
     const section = document.querySelector(`#section-${index}`);
-    if (section && section instanceof HTMLElement) { // Type guard to check it's an HTMLElement
+    if (section && section instanceof HTMLElement) {
+      // Type guard to check it's an HTMLElement
       // Adjust scroll position with an offset
       window.scrollTo({
         top: section.offsetTop - 100, // Adjust 80px to the height of your sticky navbar
@@ -23,7 +24,6 @@
     }, 2000); // Adjust timeout based on scrolling duration
   };
 </script>
-
 
 <div class="my-10">
   <h1 class="text-center font-semibold text-4xl mb-10">
@@ -66,18 +66,14 @@
           class="text-xl flex font-medium mt-5 mb-5 border border-base-300 rounded-lg px-4 py-3 shadow-sm hover:shadow-md
           transition-shadow duration-300 bg-primary-content space-x-7"
         >
-          <img src="src/images/title.png" alt="Title" class="w-9 h-9" />
+          <img src="/images/title.png" alt="Title" class="w-9 h-9" />
           <span class="mt-1">{item.title}</span>
         </div>
 
         <div class="mb-2 space-y-5 ml-5 sm:ml-10">
           {#each item.questions as question}
             <div class="flex space-x-2">
-              <img
-                src="src/images/question.png"
-                alt="Question"
-                class="w-7 h-7"
-              />
+              <img src="/images/question.png" alt="Question" class="w-7 h-7" />
               <span>{question}</span>
             </div>
           {/each}

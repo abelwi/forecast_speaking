@@ -81,10 +81,10 @@
       <div class="flex sm:items-center space-x-3 sm:space-x-10">
         <div class="w-1/2 mt-5">
           <div
-            class="flex items-start sm:items-center space-x-2 sm:space-x-7 bg-primary-content text-sm sm:text-lg text-center px-5 py-4 rounded-lg"
+            class="flex sm:items-center space-x-2 sm:space-x-7 bg-primary-content text-sm sm:text-lg text-center px-2 sm:px-5 py-4 rounded-lg"
           >
-            <img src="/images/describe.png" alt="Describe" class="w-10 sm:w-16 h-10 sm:h-16" />
-            <span>{item.title}</span>
+            <img src="/images/describe.png" alt="Describe" class="w-0 sm:w-16 h-0 sm:h-16" />
+            <span class="w-4/5">{item.title}</span>
           </div>
 
           <div class="mt-5">

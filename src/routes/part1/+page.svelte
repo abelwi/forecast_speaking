@@ -26,19 +26,19 @@
 </script>
 
 <div class="my-10">
-  <h1 class="text-center font-semibold text-4xl mb-10">
+  <h1 class="text-center font-semibold text-xl sm:text-4xl mb-5 sm:mb-10">
     Bộ đề dự đoán IELTS SPEAKING Part 1 <em class="text-primary">tháng 12</em>!
   </h1>
 
   <div class="sticky top-0 bg-white">
     <div class="flex justify-center mb-5 pt-3 space-x-5">
-      <a href="/" class="btn btn-outline btn-primary">Giới thiệu</a>
-      <a href="/part1" class="btn btn-primary">Part1</a>
-      <a href="/part2-3" class="btn btn-outline btn-primary">Part 2&3</a>
+      <a href="/" class="btn btn-sm sm:btn-md btn-outline btn-primary">Giới thiệu</a>
+      <a href="/part1" class="btn btn-sm sm:btn-md btn-primary">Part1</a>
+      <a href="/part2-3" class="btn btn-sm sm:btn-md btn-outline btn-primary">Part 2&3</a>
     </div>
 
     <div
-      class="flex overflow-x-auto whitespace-nowrap space-x-6 border-b-2 border-gray-200 mx-20"
+      class="flex overflow-x-auto whitespace-nowrap space-x-6 border-b-2 border-gray-200 mx-5 sm:mx-20"
     >
       {#each part1Forecast as item, i}
         <a
@@ -61,9 +61,9 @@
   <div class="px-10 sm:px-20 flex justify-center">
     <div>
       {#each part1Forecast as item, i}
-        <div id="section-{i}" class="h-10"></div>
+        <div id="section-{i}" class="h-5 sm:h-10"></div>
         <div
-          class="text-xl flex font-medium mt-5 mb-5 border border-base-300 rounded-lg px-4 py-3 shadow-sm hover:shadow-md
+          class="text-lg sm:text-xl flex font-medium mt-5 mb-5 border border-base-300 rounded-lg px-4 py-3 shadow-sm hover:shadow-md
           transition-shadow duration-300 bg-primary-content space-x-7"
         >
           <img src="/images/title.png" alt="Title" class="w-9 h-9" />

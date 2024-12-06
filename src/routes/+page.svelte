@@ -1,26 +1,21 @@
 <script lang="ts">
 </script>
 
-<div class="text-center mt-32 mb-5">
-  <h1 class="text-4xl">
+<div class="text-center mt-20 sm:mt-32 mb-5 mx-5 sm:mx-5">
+  <h1 class="sm:text-4xl text-xl">
     Bộ đề dự đoán
-    <strong
-      class=""
-      data-tip="Dự đoán trước các chủ đề hoặc câu hỏi có khả năng xuất hiện ở phần thi IELTS Speaking"
-    >
       <span class="text-primary">IELTS SPEAKING FORECAST</span>
-    </strong>
     theo tháng! <em>(Tháng 12)</em>
   </h1>
-  <p class="text-gray-500 font-medium mt-4">
+  <p class="text-gray-500 font-medium text-sm sm:text-base mt-4">
     Tổng hợp Forecast theo từng tháng để các bạn có thể dễ dàng theo dõi.
   </p>
 
-  <div class="flex justify-center mt-16 space-x-5">
-    <a href="/part1" class="btn btn-primary btn-outline btn-lg btn-wide"
+  <div class="flex justify-center mt-10 sm:mt-16 space-x-5">
+    <a href="/part1" class="btn btn-primary btn-outline sm:btn-lg sm:btn-wide"
       >Part1</a
     >
-    <a href="/part2-3" class="btn btn-outline btn-primary btn-lg btn-wide"
+    <a href="/part2-3" class="btn btn-outline btn-primary sm:btn-lg sm:btn-wide"
       >Part 2&3</a
     >
   </div>
@@ -29,14 +24,14 @@
 <div class="collapse">
   <input type="checkbox" />
   <div class="collapse-title">
-    <div class="flex justify-center space-x-3">
-      <p class="text-xl font-medium btn btn-primary">Tìm hiểu thêm</p>
-      <img src="/images/icons8-double-down.gif" alt="double_down" />
+    <div class="flex justify-center space-x-3 ml-14">
+      <p class="sm:text-xl font-medium btn btn-sm sm:btn-md btn-primary">Tìm hiểu thêm</p>
+      <img src="/images/icons8-double-down.gif" alt="double_down" class="h-7 sm:h-12 w-7 sm:w-12" />
     </div>
   </div>
   <div class="collapse-content mt-5">
     <div class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h2 class="text-2xl font-semibold text-center mb-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-center mb-6">
         Vai trò của speaking forecast trong IELTS
       </h2>
 
@@ -49,7 +44,7 @@
           <div class="flex justify-center mb-4">
             <img src="/images/bookmark.png" alt="circle_tag" class="w-3 h-3" />
           </div>
-          <h3 class="text-xl text-neutral font-semibold mb-2">
+          <h3 class="sm:text-xl text-neutral font-semibold mb-2">
             Dự đoán các chủ đề thường xuất hiện
           </h3>
           <p class="text-sm text-gray-600">
@@ -65,7 +60,7 @@
           <div class="flex justify-center mb-4">
             <img src="/images/bookmark.png" alt="circle_tag" class="w-3 h-3" />
           </div>
-          <h3 class="text-xl text-neutral font-semibold mb-2">
+          <h3 class="sm:text-xl text-neutral font-semibold mb-2">
             Chuẩn bị từ vựng và cấu trúc ngữ pháp
           </h3>
           <p class="text-sm text-gray-600">
@@ -81,7 +76,7 @@
           <div class="flex justify-center mb-4">
             <img src="/images/bookmark.png" alt="circle_tag" class="w-3 h-3" />
           </div>
-          <h3 class="text-xl text-neutral font-semibold mb-2">
+          <h3 class="sm:text-xl text-neutral font-semibold mb-2">
             Xây dựng ý tưởng và câu trả lời mẫu
           </h3>
           <p class="text-sm text-gray-600">
@@ -97,7 +92,7 @@
           <div class="flex justify-center mb-4">
             <img src="/images/bookmark.png" alt="circle_tag" class="w-3 h-3" />
           </div>
-          <h3 class="text-xl text-neutral font-semibold mb-2">
+          <h3 class="sm:text-xl text-neutral font-semibold mb-2">
             Tăng cường sự tự tin
           </h3>
           <p class="text-sm text-gray-600">
@@ -110,21 +105,21 @@
     <div
       class="max-w-4xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-20 mb-10"
     >
-      <h2 class="text-2xl text-neutral font-semibold text-center mb-6">
+      <h2 class="text-xl sm:text-2xl text-neutral font-semibold text-center mb-6">
         Cấu trúc bài thi IELTS Speaking
       </h2>
 
       <!-- Step Diagram -->
       <div class="space-y-8">
         <!-- Part 1 -->
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-5 sm:space-x-6">
           <div
-            class="w-16 h-16 bg-primary text-white flex items-center justify-center rounded-full"
+            class="w-10 sm:w-16 h-10 sm:h-16 bg-primary text-white flex items-center justify-center rounded-full"
           >
-            <span class="text-lg font-semibold">1</span>
+            <span class="text-sm sm:text-lg font-semibold">1</span>
           </div>
-          <div>
-            <h3 class="text-xl font-semibold">
+          <div class="w-2/3">
+            <h3 class="sm:text-xl font-semibold">
               Part 1: Introduction & Interview
             </h3>
             <p class="text-sm text-gray-600">
@@ -140,13 +135,13 @@
         </div>
 
         <!-- Part 2 -->
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-5 sm:space-x-6">
           <div
-            class="w-16 h-16 bg-secondary text-white flex items-center justify-center rounded-full"
+            class="w-10 sm:w-16 h-10 sm:h-16 bg-secondary text-white flex items-center justify-center rounded-full"
           >
             <span class="text-lg font-semibold">2</span>
           </div>
-          <div>
+          <div class="w-2/3">
             <h3 class="text-xl font-semibold">Part 2: Individual long Turn</h3>
             <p class="text-sm text-gray-600">
               Thời gian: 3-4 phút (bao gồm 1 phút chuẩn bị). Nói về một chủ đề
@@ -161,13 +156,13 @@
         </div>
 
         <!-- Part 3 -->
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-5 sm:space-x-6">
           <div
-            class="w-16 h-16 bg-accent text-white flex items-center justify-center rounded-full"
+            class="w-10 sm:w-16 h-10 sm:h-16 bg-accent text-white flex items-center justify-center rounded-full"
           >
             <span class="text-lg font-semibold">3</span>
           </div>
-          <div>
+          <div class="w-2/3">
             <h3 class="text-xl font-semibold">Part 3: Discussion</h3>
             <p class="text-sm text-gray-600">
               Thời gian: 4-5 phút. Giám khảo sẽ hỏi thêm những câu hỏi phức tạp

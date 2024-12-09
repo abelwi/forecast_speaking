@@ -6,6 +6,14 @@
   let searchTerm = '';
   let filteredData = [];
 
+  // State to manage collapsed/expanded status for each topic
+  let collapsed = Array(part23Forecast.length).fill(true);
+
+  // Toggle visibility for a specific topic
+  const toggleCollapse = (index: number) => {
+    collapsed[index] = !collapsed[index];
+  };
+
   const handleClick = (index: number) => {
     isClicking = true; // Temporarily disable scroll logic
     activeSection = index;
@@ -21,7 +29,7 @@
     // Re-enable scroll handling after scrolling finishes
     setTimeout(() => {
       isClicking = false;
-    }, 2000); // Adjust timeout based on scrolling duration
+    }, 2000); 
   };
 
   // Filter the data whenever the search term changes
@@ -161,13 +169,13 @@
       <span>{topic.topic}</span>
     </h1>
 
-    {#each topic.titles as item, j}
+    {#each topic.titles.slice(0, collapsed[i] ? 2 : topic.titles.length) as item, j}
       {#if j > 0}
         <div class="divider"></div>
       {/if}
 
       <!-- Adjusted section id to match the topic and title indices -->
-      <div id="section-{i}-{j}" class="pt-5"> <!-- Add padding top for spacing -->
+      <div id="section-{i}-{j}" class="pt-5"> 
         <div class="flex sm:items-center space-x-3 sm:space-x-10">
           <div class="w-1/2 mt-5">
             <div class="flex sm:items-center space-x-2 sm:space-x-7 bg-primary-content text-sm sm:text-lg text-center px-2 sm:px-5 py-4 rounded-lg">
@@ -194,15 +202,20 @@
         </div>
       </div>
     {/each}
+
+    
+    <!-- Toggle button -->
+    <div class="flex justify-center">
+      <button
+        class="mt-0 sm:mt-5 btn-circle"
+        on:click={() => toggleCollapse(i)}
+      >
+        <img
+          src={collapsed[i] ? "/images/arrow-down.png" : "/images/arrow-up.png"}
+          alt={collapsed[i] ? "Show More" : "Show Less"}
+          class="w-7 sm:w-10 h-7 sm:h-10"
+        />
+      </button>
+    </div>
   {/each}
-
-
-  <!-- Check if there are any filtered results -->
-  <div class="mt-20">
-    {#if part23Forecast.length === 0}
-      <p class="text-center text-sm sm:text-lg font-semibold text-red-500">
-        Không có câu hỏi nào cho "{searchTerm}" :((
-      </p>
-    {/if}
-  </div>
 </div>

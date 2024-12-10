@@ -207,13 +207,13 @@
     <!-- Toggle button -->
     <div class="flex justify-center">
       <button
-        class="mt-0 sm:mt-5 btn-circle"
+        class="mt-0 sm:mt-5 btn btn-sm sm:btn-md btn-circle border border-black hover:border-black"
         on:click={() => toggleCollapse(i)}
       >
         <img
-          src={collapsed[i] ? "/images/arrow-down.png" : "/images/arrow-up.png"}
+          src={collapsed[i] ? "/images/down-arrow.png" : "/images/up-arrow.png"}
           alt={collapsed[i] ? "Show More" : "Show Less"}
-          class="w-7 sm:w-10 h-7 sm:h-10"
+          class="w-3 sm:w-6 h-3 sm:h-6"
         />
       </button>
     </div>

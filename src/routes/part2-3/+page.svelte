@@ -169,7 +169,7 @@
       <span>{topic.topic}</span>
     </h1>
 
-    {#each topic.titles.slice(0, collapsed[i] ? 2 : topic.titles.length) as item, j}
+    {#each topic.titles as item, j}
       {#if j > 0}
         <div class="divider"></div>
       {/if}
@@ -202,20 +202,5 @@
         </div>
       </div>
     {/each}
-
-    
-    <!-- Toggle button -->
-    <div class="flex justify-center">
-      <button
-        class="mt-0 sm:mt-5 btn btn-sm sm:btn-md btn-circle border border-black hover:border-black"
-        on:click={() => toggleCollapse(i)}
-      >
-        <img
-          src={collapsed[i] ? "/images/down-arrow.png" : "/images/up-arrow.png"}
-          alt={collapsed[i] ? "Show More" : "Show Less"}
-          class="w-3 sm:w-6 h-3 sm:h-6"
-        />
-      </button>
-    </div>
   {/each}
 </div>
